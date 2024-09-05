@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <signal.h>
-#include <limits.h>
+#include <limits.h> //Necesario para PATH_MAX
 
 int g_sigcount = 0;
 
