@@ -1,7 +1,8 @@
 Fork3r
 ======
 
-Autor: S3JonEstado: Proof of Concept (PoC) - Solo para fines educativos
+Autor: S3Jon\
+Estado: Proof of Concept (PoC) - Solo para fines educativos
 
 🚀 Introducción
 ------
