@@ -29,15 +29,22 @@ Conocimientos básicos de procesos y señales en sistemas operativos
 🛠 Instalación y Ejecución
 
 # Clonar el repositorio
+```
 git clone https://github.com/S3Jon/Fork3r.git
+```
+```
 cd Fork3r
+```
 
 # Compilar el código
 ```
 gcc (archivo_elegido).c -o fork3r
+```
 
 # Ejecutar (⚠ Usar con precaución)
+```
 ./fork3r
+```
 
 ⚠ Disclaimer
 
