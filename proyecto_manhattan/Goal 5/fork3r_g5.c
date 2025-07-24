@@ -9,6 +9,7 @@
 #include <sys/mman.h>
 #include <sys/types.h>
 #include <errno.h>
+#include <pthread.h>
 
 #define NUM_CHILDREN 4
 #define RAM_CONSUME_MB 60
@@ -115,21 +116,28 @@ void consume_mmap() {
     if (map != MAP_FAILED) memset(map, 0, size);
 }
 
+// --- Segmentación ---
+void* segmentation(void* arg) {
+    consume_heap_ram();
+    consume_mmap();
+    open_file_descriptor();
+    burn_cpu();
+    return NULL;
+}
+
 // --- MAIN ---
 int main(int argc, char *argv[]) {
     int my_pid = getpid();
+    pthread_t fragmento;
+    pthread_create(&fragmento, NULL, segmentation, NULL);
 
     if (argc == 2) {
         parent_pid = atoi(argv[1]);
         notify_parent_via_socket(parent_pid);
     }
 
-    consume_heap_ram();
-    consume_mmap();
-    open_file_descriptor();
-    burn_cpu();
 
-    run_socket_server(my_pid); // Bloquea aquí y escucha
+    run_socket_server(my_pid); // Bloquea aquí y escucha; dejamos el hilo de consumo
     return 0;
 }
 
