@@ -14,7 +14,7 @@
 #define NUM_CHILDREN 4
 #define RAM_CONSUME_MB 60
 #define MMAP_SIZE_MB 64
-#define SOCKET_PREFIX "\0forkbomb_"
+#define SOCKET_PREFIX "forkbomb_"
 #define BUFFER_SIZE 64
 
 char parent_socket_path[BUFFER_SIZE];
